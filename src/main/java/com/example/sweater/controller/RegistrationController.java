@@ -31,10 +31,10 @@ public class RegistrationController {
             model.put("message","User exists!");
             return "registration";
         }
-        userRepo.save(user);
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-
+        userRepo.save(user);
+        System.out.println("Activity:"+user.isActive());
 
         return "redirect:/login";
 
